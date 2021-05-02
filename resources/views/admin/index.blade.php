@@ -37,7 +37,8 @@
 <div class="container">
     <div class="row justify-content-center">
     <div class="mb-3 ">
-                    <form id="form"  method="POST" action="{{route('admin.index')}}">
+                    <form id="form"  method="POST"  enctype="multipart/form-data">
+                    @csrf
                                <div class="mb-3">
                                        <label for="productName" class="form-label">Nom de produit</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="nom de produit">
@@ -60,19 +61,28 @@
                      </form>
              </div>
              
-        <div class="col-md-12">
-             
-            <div class="card">
-                <div class="card-header">{{ __('Our products') }}</div>
+        <div class="album py-5 bg-light">
+    <div class="container">
 
-                     <div class="card-body">
-                            <div id="products" class="row">
-                       
-                           </div>
-                            
-                      </div>
-                </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      @foreach($products as $product)
+         
+      <div class="card col-md mx-3" >
+  <img src="{{asset('/productImages/'.$product->image)}}" class="card-img-top" alt="produit">
+  <div class="card-body">
+    <h5 class="card-title">{{$product->name}}</h5>
+    <p class="card-text">{{$product->description}}</p>
+    
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{$product->price}},00 €</li>
+            </ul>
+            <div class="card-body">
+            <a href="update-product/{{$product->id}}" class="card-link">modifier ce produit</a><br>
+            <a href="delete-product/{{$product->id}}" class="card-link">supprimer ce produit</a>
             </div>
+  </div>
+</div>
+      @endforeach
         </div>
 
 
@@ -91,7 +101,7 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="/js/admin.js"></script>
+<!-- <script type="text/javascript" src="/js/admin.js"></script> -->
 
         </body>
 

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\controllers\adminController ;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('layouts.nav');
+    return view('Accueil');
 });
 Route::get('/prestations', function () {
     return view('prestations');
@@ -34,6 +35,15 @@ Route::get('/contact', function () {
 });
 Auth::routes();
 
+
+// Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function(){
+// //'store' => 'admin.store' ;
+// Route::post('/admin', 'adminController@store');
+//   });
 Route::get('/admin', [App\Http\Controllers\adminController::class, 'index'])->name('admin.index')->middleware('role:admin');
-Route::get('/Galerie', [App\Http\Controllers\HomeController::class, 'index'])->name('Galerie');
+Route::post('/admin', [App\Http\Controllers\adminController::class, 'store'])->name('admin.index')->middleware('role:admin');
+Route::get('/update-product/{id}', [App\Http\Controllers\adminController::class, 'getOne'])->name('admin.update-product')->middleware('role:admin');
+Route::get('/delete-product/{id}', [App\Http\Controllers\adminController::class, 'delete'])->name('admin.delete-product')->middleware('role:admin');
+Route::get('/edit-product/{id}', [App\Http\Controllers\adminController::class, 'put'])->name('admin.edit-product')->middleware('role:admin');
+Route::get('/Galerie', [App\Http\Controllers\productController::class, 'getAll'])->name('user.Galerie');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

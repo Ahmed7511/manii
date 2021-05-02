@@ -33,21 +33,33 @@
           </div>
         </div>
         </nav>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Nos produits </div>
-                
-                <div  class="card-body">
-                       <div id="products" class="row">
-                       
-                       </div>
-                            
-                </div>
+
+
+
+        <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      @foreach($products as $product)
+         
+      <div class="card col-md mx-3" >
+  <img src="{{asset('/productImages/'.$product->image)}}" class="card-img-top" alt="produit">
+  <div class="card-body">
+    <h5 class="card-title">{{$product->name}}</h5>
+    <p class="card-text">{{$product->description}}</p>
+    
+           <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{$product->price}},00 €</li>
+            </ul>
+            <div class="card-body">
+            <a href="update-product/{{$product->id}}" class="card-link">modifier ce produit</a><br>
+            <a href="{{$product->id}}" class="card-link">supprimer ce produit</a>
             </div>
+  </div>
+</div>
+      @endforeach
         </div>
-    </div>
+
 
 
 

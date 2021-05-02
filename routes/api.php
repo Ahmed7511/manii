@@ -22,6 +22,3 @@ Route::get('/logout', 'App\Http\Controllers\homeController@logout');
  //products
  Route::get('products', 'App\Http\Controllers\ProductController@getall');
  Route::get('products/{id}', 'App\Http\Controllers\ProductController@getone');
- Route::post('products', 'App\Http\Controllers\ProductController@post');
- Route::put('products/{id}', 'App\Http\Controllers\ProductController@put');
- Route::delete('products/{id}', 'App\Http\Controllers\ProductController@delete');

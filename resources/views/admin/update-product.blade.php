@@ -19,14 +19,16 @@
             
                        
 
-                          <form action="/edit-product" method="POST" role="form" enctype="multipart/form-data">
+                          <form action="/edit-product/{{$product->id}}" method="POST" role="form" enctype="multipart/form-data">
                                         @csrf
+                                        {{method_field('POST')}}
                                         <div class="form-group row">
                                             <img src="{{asset('/productImages/'.$product->image)}}" class="card-img-top" alt="produit">
-                                             <input type="hidden" name="id" value="{{$product->id}}"
+                                            
+                               
                                             <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
-                                            <div class="col-md-6">
-                                                <input id="image" type="file" class="form-control" name="image">
+                                            <div class="input-groupe">
+                                                <input type="file" id="image" type="file" class="form-control" name="image" value="{{$product->image}}" >
                                                 
                                             </div>
                                         </div>
@@ -39,13 +41,13 @@
                                         <div class="form-group row">
                                             <label for="price" class="col-md-4 col-form-label text-md-right">Price</label>
                                             <div class="col-md-6">
-                                                <input id="email" type="number" class="form-control" name="email" value="{{$product->price}}" >
+                                                <input id="price" type="number" class="form-control" name="price" value="{{$product->price}}" >
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="description" class="col-md-4 col-form-label text-md-right">description</label>
                                             <div class="col-md-6">
-                                                <input id="description" type="text" class="form-control" name="email" value="{{$product->description}}">
+                                                <input id="description" type="text" class="form-control" name="description" value="{{$product->description}}">
                                             </div>
                                         </div>
                                 

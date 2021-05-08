@@ -8,7 +8,7 @@
     <title>prestations</title>
 </head>
 <body>
-@include('layouts.nav')
+@include('layouts.app')
         <h1>Présentation des préstations</h1>
     
     
@@ -27,22 +27,28 @@
             <tr>
               <th scope="row">1</th>
               <td>Evénement</td>
-              <td>   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                aliquam voluptatem veniam, est atque cumque eum delectus sint!</td>
+              <td> L’organisation de manifestation culturelle dans le cadre de votre entreprise vous permet de valoriser 
+               votre image vis à vis de votre public, et de vos collaborateurs. Nous nous chargeons d’organiser des expositions sur des thématiques chères à votre corporation. Exposition individuelle, exposition collective, performances
+             Affirmer votre singularité
+                  </td>
             </tr>
            <th scope="row">2</th>
             <td>Acquisition d'ouvres</td>
-            <td>   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-              molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-              aliquam voluptatem veniam, est atque cumque eum delectus sint!</td>
+            <td> Quels sont les avantages de plébisciter l’art dans votre entreprise?
+
+                  Vous souhaiter investir 
+                  <em>Défiscalisation</em>
+                 <em> Création d’une collection d’entreprise, 
+                  Faire rentrer l’art dans vos actifs</em>
+                 <em> Facteur différenciant</em>
+                  <em>Optimisation fiscale</em>  
+           </td>
           </tr>
           <tr>
             <th scope="row">3</th>
             <td>Commande Spécial</td>
-            <td>   Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-              molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-              aliquam voluptatem veniam, est atque cumque eum delectus sint!</td>
+            <td> Vous souhaitez solliciter un de nos artistes partenaires 
+            dans le cadre d’une commande spéciale telle une réalisation de fresque murale, </td>
           </tr>
            <tr>
             <th scope="row">4</th>

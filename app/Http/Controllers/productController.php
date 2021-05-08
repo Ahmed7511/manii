@@ -9,8 +9,10 @@ use Illuminate\Support\Facades\Config;
 
 class productController extends Controller
 {
+
     public function getAll()
         {
+            
            $products = Product::all(); 
             
             if(empty($products))
@@ -18,7 +20,7 @@ class productController extends Controller
                  return response()->json($products, 204);
                 
              }
-
+               
            //return  response()->json($products, 200);
             return view('user.Galerie', compact('products'));
         }
@@ -34,7 +36,7 @@ class productController extends Controller
           }
             
            //  return response()->json($product, 200);
-          return view('product', compact('product'));
+          return view('user.product', compact('product'));
         
       }
 

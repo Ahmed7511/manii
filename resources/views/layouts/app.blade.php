@@ -33,6 +33,23 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./prestations">Nos prestations </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link active"  href="./Actualité">Actualités / Revue de presse</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link active" href="./Galerie">Galerie</a>
+              </li>
+              @role('admin')
+              <li class="nav-item active">
+                <a class="nav-link active" href="./admin">admin</a>
+              </li>
+              @endrole
+              <li class="nav-item active">
+                <a class="nav-link active" href="./contact">Nous Contactez</a>
+              </li>
 
                     </ul>
 

@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Config;
-
+//use file;
 class adminController extends Controller
 {
     public function index()
     {
        // auth()->user()->assignRole('admin');   pour donner le role admin
+       
        $products = Product::all(); 
         
        if(empty($products))
@@ -74,22 +75,23 @@ class adminController extends Controller
     }
 
     
-    public function put(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $product = Product::find($id);
-        $product->name = $request->name ;
+        $product->name = $request->input('name') ;
         $product->price = $request->price ;
-        $product->description = $request->description ;
-        $image = $request->image ;
-        
-       
+        $product->description = $request->input('description') ;
+        $image = $request->file('image') ;
       if($image){
+        unlink(public_path('productImages').'/'.$product->image) ;
            $imageName = time().'_'.$image->getClientOriginalName();
             $image->move('productImages', $imageName);
-            $formInput['image']= $imageName ;
+            $product->image= $imageName ;
+
        }
        $product->save();
-     return redirect('/admin')->with('success','product updated');
+        
+     return redirect('/admin')->with('product',$product);
 
     }
     

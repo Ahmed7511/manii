@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Nos Produits') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -38,7 +38,7 @@
                                                            <li class="list-group-item">{{$product->price}},00 €</li>
                                                        </ul>
                                              <div class="card-body">
-                                                       <a href="/Galerie/product/{{$product->id}}" class="card-link">Voir détaille</a><br>
+                                                       <a href="Galerie/product/{{$product->id}}" class="card-link">Voir détaille</a><br>
                                              </div>
                                             </div> 
                               </div>

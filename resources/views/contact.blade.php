@@ -9,7 +9,7 @@
     <title>Contact</title>
 </head>
 <body>
-   @include('layouts.nav')
+   @include('layouts.app')
         <form id="form" class="mx-3">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nom</label>
@@ -41,19 +41,7 @@
         <!-- Grid container -->
         <div class="container p-4">
           <!--Grid row-->
-          <div class="row">
-            <!--Grid column-->
-            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-              <h5 class="text-uppercase">QUI SOMME NOUS ?</h5>
-      
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
-                aliquam voluptatem veniam, est atque cumque eum delectus sint!
-              </p>
-            </div>
-          
-            </div>
+          @include('layouts.entreprise')
             <!--Grid column-->
           </div>
       

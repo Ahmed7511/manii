@@ -15,7 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <script src="https://kit.fontawesome.com/c10c83c5b7.js"
+    crossorigin="anonymous"
+                    ></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -34,21 +36,26 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./prestations">Nos prestations </a>
+                <a class="nav-link active" aria-current="page" href="{{ url('prestations')}}">Nos prestations </a>
               </li>
               <li class="nav-item ">
-                <a class="nav-link active"  href="./Actualité">Actualités / Revue de presse</a>
+                <a class="nav-link active"  href="{{ url('Actualité')}}">Actualités / Revue de presse</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link active" href="./Galerie">Galerie</a>
+                <a class="nav-link active" href="{{ url('Galerie')}}">Galerie</a>
               </li>
               @role('admin')
               <li class="nav-item active">
-                <a class="nav-link active" href="./admin">admin</a>
+                <a class="nav-link active" href="{{ url('admin')}}"><i class="fas fa-user-cog"></i> admin</a>
               </li>
               @endrole
+              @if(Auth()->user())
               <li class="nav-item active">
-                <a class="nav-link active" href="./contact">Nous Contactez</a>
+                <a class="nav-link active" href="{{ route('user.panier')}}">panier  </a>
+              </li>
+              @endif
+              <li class="nav-item active">
+                <a class="nav-link active" href="{{ url('contact')}}">Nous Contactez</a>
               </li>
 
                     </ul>
@@ -71,7 +78,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <i class="fas fa-user"></i>  {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

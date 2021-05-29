@@ -51,7 +51,7 @@
               @endrole
               @if(Auth()->user())
               <li class="nav-item active">
-                <a class="nav-link active" href="{{ route('user.panier')}}">panier  </a>
+                <a class="nav-link active" href="{{ route('user.panier')}}"> panier  </a>
               </li>
               @endif
               <li class="nav-item active">

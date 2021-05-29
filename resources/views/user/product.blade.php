@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div class="col-md-6">
-                  
                      <div class="card col-md mx-3" >
                                      <img src="{{asset('/productImages/'.$product->image)}}" class="card-img-top" alt="produit">
                                           <div class="card-body">
@@ -17,7 +16,6 @@
                                              <label for="qty">Quantité</label>
                                              <input class="form-control" type="number" name="quantity" id="qty"  value="1">
                                              <input type="hidden" name="product_id" value="{{$product->id}}">
-                                             <!-- <input type="hidden" name="user_id" value="{{Auth()->user()->id}}"> -->
                                              
                                                        <button type="submit" class="btn btn-dark">
                                                        <i class="fas fa-cart-plus"></i>

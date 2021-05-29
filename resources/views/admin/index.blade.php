@@ -31,54 +31,54 @@
                                          <label for="description" class="form-label">description</label>
                                          <textarea class="form-control" name="description" id="description" rows="3"></textarea>
                                </div>
-                               <div class="mb-3">
-                                <input type="submit"  value="Ajouter">
+                                <div class="text-center">
+                                     <input type="submit"  value="Ajouter">
                                 </div>
                      </form>
              </div>
              
-        <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-      @foreach($products as $product)
-         
-      <div class="card col-md mx-3" >
-  <img src="{{asset('/productImages/'.$product->image)}}" class="card-img-top" alt="produit">
-  <div class="card-body">
-    <h5 class="card-title">{{$product->name}}</h5>
-    <p class="card-text">{{$product->description}}</p>
+ <div class="row">
     
-           <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{$product->price}},00 €</li>
-            </ul>
-            <div class="card-body">
-            <a href="update-product/{{$product->id}}" class="card-link">modifier ce produit</a><br>
-            <a href="delete-product/{{$product->id}}" class="card-link">supprimer ce produit</a>
-            </div>
-  </div>
-</div>
-      @endforeach
+    @foreach($products as $product)
+      <div class="card col-md-4" >
+            <img src="{{asset('/productImages/'.$product->image)}}" width="200px" height="200px"
+                      class="img-thumbnail" alt="image_produit">
+             <div class="card-body">
+                        <h5 class="card-title">{{$product->name}}</h5>
+                              <p class="card-text">{{$product->description}}</p>
+                         <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{{$product->price}},00 €</li>
+                         </ul>
+                   <div class="card-body">
+                       <a type="button" href="update-product/{{$product->id}}" 
+                       class="btn btn-sm btn-outline-secondary">modifier </a>
+
+                       <a type="button" href="delete-product/{{$product->id}}"
+                        class="btn btn-sm btn-outline-secondary">supprimer</a>
+                    </div>
+              </div>
         </div>
+      @endforeach
+    </div>
 
 
 
 
-        
+      </div>
+      </div>  
         
           <!-- Copyright -->
-          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          <div class="text-center mt-5 mb-0 p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2020 Copyright:
             <a class="text-dark" href="#">manii.com</a>
           </div>
           <!-- Copyright -->
       
-        </div>
+        
+          @endsection
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
-<!-- <script type="text/javascript" src="/js/admin.js"></script> -->
-@endsection
         </body>
 
   </html>

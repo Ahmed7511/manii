@@ -37,10 +37,10 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('Galerie', [App\Http\Controllers\productController::class, 'getAll']);
-    Route::get('Galerie/product/{id}', [App\Http\Controllers\productController::class, 'getOne']);
-    //Route::post('Galerie/product/{id}', [App\Http\Controllers\CartController::class, 'add'] );  
+    Route::get('Galerie/product/{id}', [App\Http\Controllers\productController::class, 'getOne']); 
     Route::post('Galerie/panier', [App\Http\Controllers\CartController::class, 'add'] )->name('user.panier');  
     Route::get('Galerie/panier', [App\Http\Controllers\CartController::class, 'getAll'] );
+    Route::get('Galerie/delete-cart/{id}', [App\Http\Controllers\CartController::class,'delete']);
 });
 Route::group(['middleware' => ['auth' ,'role:admin']], function () {
 Route::get('/admin', [App\Http\Controllers\adminController::class, 'index'])->name('admin.index');

@@ -24,6 +24,18 @@
             <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
           </div>
           <div class="mb-3">
+                 <select class="form-select" aria-label="Default select example">
+                         <option selected>Vous êtes </option>
+                               <option value="1">artiste</option>
+                               <option value="2">entreprise</option>
+                              <option value="3">particulier</option>
+                              <option value="4">architecte</option>
+                              <option value="5">décorateur</option>
+                              <option value="6">agence de communication ou publicité</option>
+                              <option value="7">autre</option>
+                 </select>
+           </div>
+          <div class="mb-3">
             <label for="formFileMultiple" class="form-label">Multiple files input example</label>
             <input class="form-control" name="file" type="file" id="file" multiple>
           </div>

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use Illuminate\Support\Facades\Config;
-//use file;
 class adminController extends Controller
 {
     public function index()
@@ -52,9 +51,6 @@ class adminController extends Controller
          
         }
         
-        //return view('admin.index', compact('products'));
-      
-    //  return response()->json($product, 201);
      return redirect('/admin')->with('success','product Created');
     }
     
@@ -83,7 +79,7 @@ class adminController extends Controller
         $product->description = $request->input('description') ;
         $image = $request->file('image') ;
       if($image){
-        unlink(public_path('productImages').'/'.$product->image) ;
+        //unlink(public_path('productImages').'/'.$product->image) ;
            $imageName = time().'_'.$image->getClientOriginalName();
             $image->move('productImages', $imageName);
             $product->image= $imageName ;

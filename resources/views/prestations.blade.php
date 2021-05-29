@@ -33,7 +33,7 @@
                   </td>
             </tr>
            <th scope="row">2</th>
-            <td>Acquisition d'ouvres</td>
+            <td>Acquisition d'œuvres</td>
             <td> Quels sont les avantages de plébisciter l’art dans votre entreprise?
 
                   Vous souhaiter investir 

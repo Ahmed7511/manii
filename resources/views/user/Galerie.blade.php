@@ -35,10 +35,10 @@
                                                 <p class="card-text">{{$product->description}}</p>
     
                                                       <ul class="list-group list-group-flush">
-                                                           <li class="list-group-item">{{$product->price}},00 €</li>
+                                                           <li class="list-group-item"> Prix : {{$product->price}},00 €</li>
                                                        </ul>
                                              <div class="card-body">
-                                                       <a href="Galerie/product/{{$product->id}}" class="card-link">Voir détaille</a><br>
+                                                       <a type="button" href="Galerie/product/{{$product->id}}" class="btn btn-sm btn-info">Voir détails du produit </a><br>
                                              </div>
                                             </div> 
                               </div>

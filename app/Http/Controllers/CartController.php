@@ -13,57 +13,54 @@ class CartController extends Controller
         public function getAll()
         {
           $userId = Auth::user()->id ;
-           $myCart =  Cart::where('user_id', $userId)->count();
-           $products = DB::table('carts')->join('products', 'carts.product_id', '=', 'products.id' )
+          //$myCart =  Cart::where('user_id', $userId)->count();
+          
+           $carts = DB::table('carts')->join('products', 'carts.product_id', '=', 'products.id' )
                                          ->where('carts.user_id', $userId)
-                                         ->select('carts.quantity as qty', 'products.*' )
+                                         ->select('carts.quantity as qty', 'carts.id as cart_id', 'products.*' )
                                          ->get();  
-                                                    
+                                 
                                         
-            if(empty($products))
+            if(empty($carts))
              {
-                 return response()->json($products, 204);
+                  return view('user.panier')->with('succés', 'panier vide');
              }
-               //dd($products);
+              // dd($carts);
           // return  response()->json($cart, 200);
-           return view('user.panier', compact('products', 'myCart'));
+           return view('user.panier', compact('carts'));
         }
 
         public function add(Request $request)
         {
+          $cartexsist = Cart::find($request->product_id);
+          
+          if($cartexsist == null ){
             $cart = Cart::create(array
             ('user_id' => Auth::user()->id,
             'product_id' => $request->product_id,
             'quantity' => $request->quantity )
                           );
             
-            return view('user.Galerie');
+            return redirect('/Galerie/panier');
+          }elseif($cartexsist != null) {
+            return redirect('/Galerie/panier')->with('erreur', 'produit déja ajouté !');
+          }
+
+           
         }
+
+        public function delete(Request $request, $id)
+        {
+          Cart::destroy($id);
+          return redirect('/Galerie/panier')->with('succés', 'produit supprimé !');
+        }
+        
       public function myCart()
       {
           $userId = Auth::user()->id ;
         $myCart =  Cart::where('user_id', $userId)->count();
           //return view('user.panier', compact('myCart'));
       }
-    // public function add(Request $request)
-    // { 
-    //     $userId = auth()->user()->id; // or any string represents user identifier
-    //      Cart::session($userId)->add(array(
-    //          // 'id' => 456, // inique row ID
-    //           'product_id' => $request->product_id,
-    //            'quantity' => $request->quantity,
-    //             'attributes' => array()
-    //            ));
-    //     return redirect('/Galerie/panier');
-    // }
-
-    // public function index()
-    // {
-    //     $content =  Cart::getContent();
-    //     $total = Cart::getTotal();
-    //    // $remove = Cart::remove();
-    //     //dd($content);
-    //     return view('user.panier', compact('content', 'total'));
-
-    // }
+    
+     
 }

@@ -33,7 +33,7 @@
         <td></td>
         <td></td>
         <td style="display: none">{{$total = 0}} </td>
-       <th>Totale à payer </th>
+       <th>Total à payer </th>
        @foreach($carts as $cart)
       
        <td style="display: none"> {{ $total += $cart->price * $cart->qty}} </td>
@@ -82,7 +82,7 @@
             </div>
 
             <div class="col-12">
-              <label for="address" class="form-label">Address</label>
+              <label for="address" class="form-label">Adresse</label>
               <input type="text" class="form-control" id="address" placeholder="12 rue de paris" required>
               <div class="invalid-feedback">
                votre adresse de livraison.
@@ -90,11 +90,11 @@
             </div>
 
             <div class="col-12">
-              <label for="address2" class="form-label">Address 2 <span class="text-muted">(Optional)</span></label>
-              <input type="text" class="form-control" id="address2" placeholder="batiment étage ">
+              <label for="address2" class="form-label">ville</label>
+              <input type="text" class="form-control" id="state" placeholder="paris ">
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-5 mt-4">
               <label for="country" class="form-label">pays</label>
               <select class="form-select" id="country" required>
                 <option value="">Choose...</option>
@@ -106,20 +106,6 @@
               </select>
               <div class="invalid-feedback">
                 Please select a valid country.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">Ville</label>
-              <select class="form-select" id="state" required>
-                <option value="">Choose...</option>
-                <option>Paris </option>
-                <option>Paris </option>
-                <option>Paris </option>
-                <option>Paris </option>
-              </select>
-              <div class="invalid-feedback">
-                sélectionné une ville s'il vous plaîl.
               </div>
             </div>
 

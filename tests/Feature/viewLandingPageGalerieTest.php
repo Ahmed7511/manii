@@ -21,13 +21,5 @@ class viewLandingPageGalerieTest extends TestCase
         $response->assertSee('password');
      }
 
-      /** @test */
-     public function testRedirectShouldBeOnTheGalerieWhenLoggedIn()
-{
-   $user = factory(User::class)->create();
-
-    dd($user);
-
-  
-}
+     
 }
